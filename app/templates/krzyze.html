@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table class="table">
+   <thead>
+     <tr>
+       <th scope="col">Nazwa</th>
+       <th scope="col">Cena</th>
+       <th scope="col"></th>
+       <th scope="col"></th>
+     </tr>
+   </thead>
+   <tbody>
+       {% for krzyz in all_krzyz %}
+     <tr>
+       <td>
+           {{ krzyz.name }}
+       </td>
+       <td>
+           {{ krzyz.price }} 
+       </td>
+       
+       <td>
+         <div>
+            {% if session.logged_in %}
+              <form class="form-inline my-2 my-lg-0 float-right" action="{{ url_for('delete_krz', entry_id=krzyz.id) }}" method="POST">
+                <button class="btn btn-danger my-2 my-sm-0" type="submit">Usuń</button>
+              </form>
+            {% endif %}
+         </div>
+       </td>
+     </tr>
+     {% endfor %}
+   </tbody>
+ </table>
+
+ <a href="{{ url_for('add_krz') }}" class="btn btn-secondary my-2 my-sm-0" type="button">Dodaj krzyż</a>
+
+{% endblock %}

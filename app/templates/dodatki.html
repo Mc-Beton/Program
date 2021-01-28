@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p><h4>Wybierz co chcesz wyświetlić</h4></p>
+    <div>
+        <a href="{{ url_for('material_list') }}" class="btn btn-secondary my-2 my-sm-0" type="button">Materiały</a>
+        <a href="{{ url_for('krzyz_list') }}" class="btn btn-secondary my-2 my-sm-0" type="button">Krzyże</a>
+        <a href="/" action="{{ url_for('logout') }}" class="btn btn-secondary my-2 my-sm-0" type="button">Litery</a>
+        <a href="/" action="{{ url_for('logout') }}" class="btn btn-secondary my-2 my-sm-0" type="button">Tablice</a>
+        <a href="/" action="{{ url_for('logout') }}" class="btn btn-secondary my-2 my-sm-0" type="button">Zdjęcia</a>
+    </div>
+{% endblock %}
