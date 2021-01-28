@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table class="table">
+   <thead>
+     <tr>
+       <th scope="col">Nazwa</th>
+       <th scope="col">Cena</th>
+       <th scope="col">JPG</th>
+       <th scope="col"></th>
+       <th scope="col"></th>
+     </tr>
+   </thead>
+   <tbody>
+       {% for material in all_materials %}
+     <tr>
+       <td>
+           {{ material.name }}
+       </td>
+       <td>
+           {{ material.price }} 
+       </td>
+       <td>
+         <img src="{{ url_for('get_mat', entry_id=material.id) }}" width='64' height='32'>
+       </td>
+       <td>
+         <div>
+            {% if session.logged_in %}
+              <form class="form-inline my-2 my-lg-0 float-right" action="{{ url_for('delete_mat', entry_id=material.id) }}" method="POST">
+                <button class="btn btn-danger my-2 my-sm-0" type="submit">Usuń</button>
+              </form>
+            {% endif %}
+         </div>
+       </td>
+     </tr>
+     {% endfor %}
+   </tbody>
+ </table>
+
+ <a href="{{ url_for('add_mat') }}" class="btn btn-secondary my-2 my-sm-0" type="button">Dodaj Materiał</a>
+
+{% endblock %}
