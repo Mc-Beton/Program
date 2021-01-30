@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Klasyczny</th>
+            <th scope="col"></th>
+            <th scope="col">Kopertowy</th>
+            <th scope="col"></th>
+            <th scope="col">Porsche</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <button>
+                <a href="{{ url_for('poj_kla') }}">
+                    <img src= "{{url_for('static',filename= 'poj_kla.jpg' )}}"  width='256' height='300'>
+                </a>
+                </button>
+            </td>
+            <td></td>
+            <td>
+                <button>
+                <a href="{{ url_for('poj_kop') }}">
+                    <img src= "{{url_for('static',filename= 'poj_kop.jpg' )}}"  width='256' height='300'>
+                </a>
+                </button>
+            </td>
+            <td></td>
+            <td>
+                <button>
+                <a href="{{ url_for('poj_kop') }}">
+                    <img src= "{{url_for('static',filename= 'poj_por.jpg' )}}"  width='256' height='300'>
+                </a>
+                </button>
+            </td>   
+        </tr>
+    </tbody>
+</table>
+ 
+{% endblock %}
