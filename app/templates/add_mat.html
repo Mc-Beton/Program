@@ -5,7 +5,7 @@
    Dodaj nowy materiał
 </h3>
 
-<form action="" method="POST" enctype='multipart/form-data'>
+<form action="" method="POST">
   {{form.hidden_tag()}}
    <div class="form-group">
        <label for="name">Nazwa</label>
@@ -20,9 +20,9 @@
        {{ form.info(class_="form-control", cols="20", rows="5") }}
    </div>
    <div class="form-group">
-    <label for="photo">Photo</label>
-    <input type="file" name='photo'>
-   </div>
+    <label for="price">Photo</label>
+    {{ form.photo(class_="form-control") }}
+</div>
    
    <button type="submit" class="btn btn-primary mt-5">Zapisz</button>
 </form>
