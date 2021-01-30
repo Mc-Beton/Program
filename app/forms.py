@@ -55,34 +55,33 @@ class AddsForm(FlaskForm):
     info = TextAreaField('Info')
 
 class PathForm(FlaskForm):
-    kind = TextAreaField('Kind', validators=[DataRequired()])
-    border = TextAreaField('Border', validators=[DataRequired()])
+    kind = TextAreaField('Kind')
+    border = TextAreaField('Border')
     info = TextAreaField('Info')
 
 class WritingForm(FlaskForm):
-    content = TextAreaField('Content', validators=[DataRequired()])
-    kind = TextAreaField('Kind', validators=[DataRequired()])
-    info = TextAreaField('Info')
-
-class HeadForm(FlaskForm):
-    name = TextAreaField('Name', validators=[DataRequired()])
-    thick = TextAreaField('Thick', validators=[DataRequired()])
-    mat1 = TextAreaField('Mat1', validators=[DataRequired()])
-    mat2 = TextAreaField('Mat2', validators=[DataRequired()])
+    content = TextAreaField('Content')
+    kind = TextAreaField('Kind')
     info = TextAreaField('Info')
 
 class MaterialForm(FlaskForm):
     name = TextAreaField('Name', validators=[DataRequired()])
     price = TextAreaField('Price', validators=[DataRequired()])
     info = TextAreaField('Info')
-    photo = FileField('Photo')
+    photo = TextAreaField('Photo')
 
-class HeadsForm(FlaskForm):
+class HeadskopForm(FlaskForm):
     name = TextAreaField('Name', validators=[DataRequired()])
+    photo = TextAreaField('Photo')
+
+class HeadsklaForm(FlaskForm):
+    name = TextAreaField('Name', validators=[DataRequired()])
+    photo = TextAreaField('Photo')
 
 class CrossForm(FlaskForm):
     name = TextAreaField('Name', validators=[DataRequired()])
     price = TextAreaField('Price', validators=[DataRequired()])
+    photo = TextAreaField('Photo')
 
 class WazonForm(FlaskForm):
     name = TextAreaField('Name', validators=[DataRequired()])
@@ -99,7 +98,15 @@ class PodstForm(FlaskForm):
 class LettersForm(FlaskForm):
     name = TextAreaField('Name', validators=[DataRequired()])
     price = TextAreaField('Price', validators=[DataRequired()])
+    photo = TextAreaField('Photo')
 
 class LampionForm(FlaskForm):
     name = TextAreaField('Name', validators=[DataRequired()])
     price = TextAreaField('Price', validators=[DataRequired()])
+    photo = TextAreaField('Photo')
+
+class HeadForm(FlaskForm):
+    thick = StringField('Thick', validators=[DataRequired()])
+    mat1 = StringField('mat1')
+    mat2 = StringField('mat2')
+    info = TextAreaField('Info')
