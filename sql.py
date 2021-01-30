@@ -145,13 +145,22 @@ create_material_sql = """
         name text NOT NULL,
         price text NOT NULL,
         info text,
-        photo BLOB
+        photo text
     );
     """
 
-create_heads_sql = """
-    -- heads
-    CREATE TABLE IF NOT EXISTS heads (
+create_headskop_sql = """
+    -- headskop
+    CREATE TABLE IF NOT EXISTS headskop (
+        id integer PRIMARY KEY,
+        name text NOT NULL,
+        photo text NOT NULL
+    );
+    """
+
+create_headskla_sql = """
+    -- headskla
+    CREATE TABLE IF NOT EXISTS headskla (
         id integer PRIMARY KEY,
         name text NOT NULL,
         photo text NOT NULL
@@ -163,7 +172,8 @@ create_cross_sql = """
     CREATE TABLE IF NOT EXISTS cross (
         id integer PRIMARY KEY,
         name text NOT NULL,
-        price text NOT NULL
+        price text NOT NULL,
+        photo text 
     );
     """
 
@@ -199,7 +209,8 @@ create_letters_sql = """
     CREATE TABLE IF NOT EXISTS letters (
         id integer PRIMARY KEY,
         name text NOT NULL,
-        price text NOT NULL
+        price text NOT NULL,
+        photo text
     );
     """
 
@@ -208,7 +219,8 @@ create_lampion_sql = """
     CREATE TABLE IF NOT EXISTS lampion (
         id integer PRIMARY KEY,
         name text NOT NULL,
-        price text NOT NULL
+        price text NOT NULL,
+        photo text
     );
     """
 
@@ -241,21 +253,22 @@ conn = create_connection(db_file)
 if conn is not None:
     
 
-    execute_sql(conn, create_order_sql)
-    execute_sql(conn, create_client_sql)
-    execute_sql(conn, create_product_sql)
-    execute_sql(conn, create_adds_sql)
-    execute_sql(conn, create_path_sql)
-    execute_sql(conn, create_writing_sql)
-    execute_sql(conn, create_head_sql)
-    execute_sql(conn, create_material_sql)
-    execute_sql(conn, create_heads_sql)
-    execute_sql(conn, create_cross_sql)
-    execute_sql(conn, create_wazon_sql)
-    execute_sql(conn, create_photo_sql)
-    execute_sql(conn, create_podst_sql)
-    execute_sql(conn, create_letters_sql)
-    execute_sql(conn, create_lampion_sql)
+    #execute_sql(conn, create_order_sql)
+    #execute_sql(conn, create_client_sql)
+    #execute_sql(conn, create_product_sql)
+    #execute_sql(conn, create_adds_sql)
+    #execute_sql(conn, create_path_sql)
+    #execute_sql(conn, create_writing_sql)
+    #execute_sql(conn, create_head_sql)
+    #execute_sql(conn, create_material_sql)
+    #execute_sql(conn, create_headskla_sql)
+    #execute_sql(conn, create_headskop_sql)
+    #execute_sql(conn, create_cross_sql)
+    #execute_sql(conn, create_wazon_sql)
+    #execute_sql(conn, create_photo_sql)
+    #execute_sql(conn, create_podst_sql)
+    #execute_sql(conn, create_letters_sql)
+    #execute_sql(conn, create_lampion_sql)
     
     conn.close()
 
