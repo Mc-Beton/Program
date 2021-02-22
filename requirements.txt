@@ -7,3 +7,6 @@ flask-shell-ipython
 gunicorn
 flask_wtf
 wtforms
+pandas
+openpyxl
+bs4
