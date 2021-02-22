@@ -1,0 +1,252 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+    table {
+      border-collapse: separate;
+      border-spacing: 15 0px;
+    }
+    th {
+      background-color: #d6d6d6;
+      color: white;
+    }
+    th,
+    td {
+    background-color: #e0e0e0;
+      width: 150px;
+      text-align: center;
+      border: 1px solid rgb(0, 0, 0);
+      padding: 0px;
+    }
+    h2 {
+      color: #4287f5;
+    }
+  </style>
+
+<form action="" method="POST">
+<h3><p>Dane Klienta</p></h3>
+<p>
+    
+    <form action="" method="POST">
+        {{ cliform.hidden_tag() }}
+        <div class="container">
+            
+            <div class="row align-items-right">
+            <div class="form-group">
+                <div class="col">
+                    <label for="name">Imię</label>
+                    {{ cliform.name(size=10) }}
+                  
+                    <label for="surname">Nazwisko</label>
+                    {{ cliform.surname(size=10) }}
+                
+                    <label for="tel1">Telefon 1</label>
+                    {{ cliform.tel1(size=10) }}
+                
+                    <label for="tel2">Telefon 2</label>
+                    {{ cliform.tel2(size=10) }}
+                
+                    <label for="location">Miejsce</label>
+                    {{ cliform.loc(size=10) }}
+
+                    <label for="cena">Cena</label>
+                    {{ cliform.pri(size=10) }}
+                    <p></p>
+                    <label for="zaliczka">Zaliczka</label>
+                    <p>{{ cliform.zal(size=10) }}</p>
+                </div>
+            </div>
+            </div>
+        </div>
+<p style="text-align:center;">         
+<table>
+    <p>
+    <tr>
+        <td><h5>Dane nagrobka</h5></td>   
+        <td></td>
+        <td><h5>Tablice</h5></td>
+        <td><h5>Napisy</h5></td>   
+    </tr>
+    </p>
+          
+    <tr>
+        <td>
+ 
+        {{ proform.hidden_tag() }}
+        <div class="container">
+            
+            
+            <div class="form-group">
+                <div class="col">
+                    <label for="kind"><h5>Rodzaj</h5></label>
+                    <p>{{ proform.kind(size=10) }}</p>
+                </div>
+                <div class="col"> 
+                    <label for="finish"><h5>Wykończenie</h5></label>
+                    {{ proform.finish(size=10) }}
+                </div>
+                <p></p>
+                <div class="col">
+                    <label for="parapet"><h5>Parapet</h5></label>
+                    {{ proform.parapet(size=10) }}
+                </div>
+                <div class="col">
+                    <label for="mat1">Materiał parapetów</label>
+                    {{ proform.mat1 }}
+                </div>
+                <p></p>
+                <div class="col">
+                    <label for="cokoly"><h5>Cokoły</h5></label>
+                    <p>{{ proform.cokoly(size=10) }}</p>
+                </div>
+                <div class="col">
+                    <label for="mat2">Materiał cokołów</label>
+                    {{ proform.mat2 }}
+                </div>
+                <p></p>
+                <div class="col">
+                    <label for="plyta"><h5>Płyta główna</h5></label>
+                    {{ proform.plyta(size=10) }}
+                </div>
+                <div class="col">
+                    <label for="thick">Grubość</label>
+                    {{ proform.thick(size=10) }}
+                </div>
+                <div class="col">
+                    <label for="mat3">Materiał płyty</label>
+                    {{ proform.mat3 }}
+                </div>
+                <p></p>
+                <div class="col">
+                    <label for="thick"><h5>Info</h5></label>
+                    {{ proform.info11(size=10) }}
+                </div>
+            </div>
+        </div>
+        </td>
+        
+        <td>
+            
+            <img src= "{{url_for('static',filename= w )}}"  width='384' height='510'>
+                 
+        </td>
+        
+
+
+
+        <td>
+    
+        {{ heaform.hidden_tag() }}
+        <div class="container">
+            
+            <div class="row align-items-right">
+            <div class="form-group">
+                <p><h5>Tablica główna</h5></p>
+                <div class="col">
+                    <label for="dim1">Wymiary</label>
+                    {{ heaform.dim1(size=10) }}
+                </div>
+                <div class="col">  
+                    <label for="mat1">Materiał</label>
+                    {{ heaform.mat4 }}
+                </div>
+                <p></p>
+                <p><h5>Słup/druga tablica</h5></p>
+                <div class="col">
+                    <label for="dim2">Wymiary</label>
+                    {{ heaform.dim2(size=10) }}
+                </div>
+                <div class="col">  
+                    <label for="mat2">Materiał</label>
+                    {{ heaform.mat5 }}
+                </div>
+                <p></p>
+                <div class="col">  
+                    <label for="info"><h5>Informacja</h5></label>
+                    {{ heaform.info6(size=10) }}
+                </div>
+                </div>
+            </div>
+        </div>
+        </td>
+        <td>
+            {{ wriform.hidden_tag() }}
+            <h6>Treść</h6>
+            <p>{{ wriform.content(rows='10',cols='30') }}</p>
+            <h6>Informacja</h6>
+            <p>{{ wriform.info7 }}</p>
+            <h5>Litery</h5>
+            <p>{{ wriform.kind3 }}</p>
+        </td>
+    </tr>
+</table>
+</p>
+<p>
+    <div class="row align-items-center">
+        <div class="form-group">
+            {{ addform.hidden_tag() }}
+                <h5>Dodatki</h5>
+                <table>
+                    <tr>
+                        <td><label for="wazon"><h5>Wazon</h5></label>
+                            <p>{{ addform.wazon }}</p>
+                            <p>{{ addform.info1(size=10) }}</p>
+                        </td>   
+                        <td><label for="podstawa"><h5>Podstawka</h5></label>
+                            <p>{{ addform.podstawa }}</p>
+                            <p>{{ addform.info2(size=10) }}</p>
+                        </td>
+                        <td><label for="lampion"><h5>Lampion</h5></label>
+                            <p>{{ addform.lampion }}</p>
+                            <p>{{ addform.info3(size=10) }}</p>
+                        </td>
+                        <td><label for="photo"><h5>Zdjęcie</h5></label>
+                            <p>{{ addform.photo }}</p>
+                            <p>{{ addform.info4(size=10) }}</p>
+                        </td>
+                        <td><label for="cross"><h5>Krzyż</h5></label>
+                            <p>{{ addform.cross }}</p>
+                            <p>{{ addform.info5(size=10) }}</p>
+                        </td>
+                    </tr>
+                </table>
+        </div>
+    </div>    
+</p>
+<p>
+    <div class="row align-items-center">
+        <div class="form-group">
+            <h5>Ogrodzenie</h5>
+            <table>
+                <tr>
+                    <td><h6>Rodzaj</h6>
+                        <p>{{ patform.kind2(size=10) }}</p>
+                    </td>
+                    <td><h6>Obrzeża</h6>
+                        <p>{{ patform.border(size=10) }}</p>
+                    </td>
+                    <td><h6>Ławka</h6>
+                        <p>{{ patform.bench(size=10) }}</p>
+                    </td>
+                    <td><h6>Informacja</h6>
+                        <p>{{ patform.info8(size=10) }}</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</p>
+            {{ cliform.hidden_tag() }}
+            <h6>Informacja</h6>
+            <p>{{ cliform.info(rows='10',cols='30') }}</p>
+         
+            <button type="submit" class="btn btn-primary mt-5">Zapisz</button>
+
+         </form>
+      
+</p>
+
+
+</div>
+{% endblock %}

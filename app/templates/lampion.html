@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table class="table">
+   <thead>
+     <tr>
+       <th scope="col">Nazwa</th>
+       <th scope="col">Cena</th>
+       <th scope="col">Zdjęcie</th>
+       <th scope="col"></th>
+       <th scope="col"></th>
+     </tr>
+   </thead>
+   <tbody>
+       {% for let in all_letter %}
+     <tr>
+       <td>
+           {{ let.name }}
+           <div>
+            {% if session.logged_in %}
+            <a href="{{ url_for('edit_lam', entry_id=let.id) }}">
+ 
+             <svg class="bi bi-pencil float-left" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                 <path fill-rule="evenodd" d="M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z"/>
+                 <path fill-rule="evenodd" d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z"/>
+               </svg>
+             </a>
+             {% endif %}
+            </div>
+       </td>
+       <td>{% if session.logged_in %}
+           {{ let.price }} 
+           {% endif %}
+       </td>
+       <td>
+        <img src= "{{url_for('static',filename= let.photo )}}"  width='128' height='128'>
+       </td>
+       
+       <td>
+         <div>
+            {% if session.logged_in %}
+              <form class="form-inline my-2 my-lg-0 float-right" action="{{ url_for('delete_lam', entry_id=let.id) }}" method="POST">
+                <button class="btn btn-danger my-2 my-sm-0" type="submit">Usuń</button>
+              </form>
+            {% endif %}
+         </div>
+       </td>
+     </tr>
+     {% endfor %}
+   </tbody>
+ </table>
+
+ <a href="{{ url_for('add_lam') }}" class="btn btn-secondary my-2 my-sm-0" type="button">Dodaj Lampion</a>
+
+{% endblock %}
