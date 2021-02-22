@@ -13,10 +13,10 @@
 <div class="col-lg-3 col-md-6 mb-4">
     <div class="card h-100">
         <button>
-            <a href="{{ url_for('poj_details', entry_id=w.id) }}">
+            <a href="{{ url_for('create_entry', x=w.photo) }}">
                 <img src= "{{url_for('static',filename= w.photo )}}"  width='230' height='300'>
             </a>
-            </button>
+        </button>
     </div>
 </div>
 
