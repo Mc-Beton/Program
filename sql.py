@@ -254,7 +254,7 @@ if conn is not None:
     
 
     #execute_sql(conn, create_order_sql)
-    #execute_sql(conn, create_client_sql)
+    execute_sql(conn, create_client_sql)
     #execute_sql(conn, create_product_sql)
     #execute_sql(conn, create_adds_sql)
     #execute_sql(conn, create_path_sql)
