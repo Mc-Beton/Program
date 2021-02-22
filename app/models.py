@@ -17,14 +17,19 @@ class Material(db.Model):
     name = db.Column(db.String(80), nullable=False)
     price=db.Column(db.String(80), nullable=False)
     info=db.Column(db.Text)
-    photo=db.Column(db.String(80))
-    
+    photo=db.Column(db.String(80)) 
+
+    def __repr__(self):
+        return '%r' % (self.name)
 
 class Cross(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
     price=db.Column(db.String(80), nullable=False)
     photo=db.Column(db.String(80))
+
+    def __repr__(self):
+        return '%r' % (self.name)
 
 class Headskop(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -42,7 +47,10 @@ class Letters(db.Model):
     price=db.Column(db.String(80), nullable=False)
     photo=db.Column(db.String(80))
 
-class Order(db.Model):
+    def __repr__(self):
+        return '%r' % (self.name)
+
+class Orders(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     client_id = db.Column(db.Integer, db.ForeignKey('client.id'))
     product_id = db.Column(db.Integer, db.ForeignKey('product.id'))
@@ -63,7 +71,7 @@ class Product(db.Model):
     plyta=db.Column(db.String(80))
     thick=db.Column(db.String(80))
     mat3=db.Column(db.String(80))
-    info=db.Column(db.Text)
+    info11=db.Column(db.Text)
 
 class Adds(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -80,21 +88,23 @@ class Adds(db.Model):
     
 class Path(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    kind = db.Column(db.String(80))
+    kind2 = db.Column(db.String(80))
     border=db.Column(db.String(80))
-    info=db.Column(db.Text)
+    info7=db.Column(db.Text)
 
 class Writing(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.Text)
-    kind=db.Column(db.String(80))
-    info=db.Column(db.Text)
+    kind3=db.Column(db.String(80))
+    info6=db.Column(db.Text)
+
+    
 
 class Head(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     thick=db.Column(db.String(80))
-    mat1 = db.Column(db.String(80))
-    mat2=db.Column(db.String(80))
+    mat4 = db.Column(db.String(80))
+    mat5=db.Column(db.String(80))
     info=db.Column(db.Text)
 
 class Wazon(db.Model):
@@ -102,18 +112,30 @@ class Wazon(db.Model):
     name = db.Column(db.String(80), nullable=False)
     price=db.Column(db.String(80), nullable=False)
 
+    def __repr__(self):
+        return '%r' % (self.name)
+
 class Photo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
     price=db.Column(db.String(80), nullable=False)
+
+    def __repr__(self):
+        return '%r' % (self.name)
 
 class Podst(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
     price=db.Column(db.String(80), nullable=False)
 
+    def __repr__(self):
+        return '%r' % (self.name)
+
 class Lampion(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
     price=db.Column(db.String(80), nullable=False)
     photo=db.Column(db.Text)
+
+    def __repr__(self):
+        return '%r' % (self.name)
